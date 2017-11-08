@@ -33,6 +33,8 @@ Visit [Shipeditor] for further details
 - **Qt** for the ship editor GUI
 
 ### Credits
+Code:
+- [RapidXML](http://rapidxml.sourceforge.net/)
 
 Textures:
 - Sprites for Ships from [MillionthVector](https://millionthvector.blogspot.de/p/free-sprites.html)
