@@ -1,0 +1,30 @@
+<Ship name="XuruGunship" density="1.0" friction="0.1" scale="1.5" propulsion="300" maxTorque="0.7" hull="500" shieldClass="3" worth="12000">
+	<Shape>
+		<Polygon>
+			<Vertex x="24,952606" y="255,672492"/>
+			<Vertex x="33,781989" y="266,037587"/>
+			<Vertex x="64,876775" y="267,573157"/>
+			<Vertex x="70,635069" y="257,591942"/>
+		</Polygon>
+		<Polygon>
+			<Vertex x="70,635069" y="257,591942"/>
+			<Vertex x="93,284361" y="256,440268"/>
+			<Vertex x="87,526062" y="13,052349"/>
+			<Vertex x="65,644549" y="13,436242"/>
+			<Vertex x="38,772511" y="23,417449"/>
+			<Vertex x="26,488151" y="39,157046"/>
+			<Vertex x="24,952606" y="255,672492"/>
+		</Polygon>
+		<Polygon>
+			<Vertex x="93,284361" y="256,440268"/>
+			<Vertex x="99,042649" y="268,340933"/>
+			<Vertex x="128,601895" y="267,957054"/>
+			<Vertex x="138,966826" y="257,975838"/>
+			<Vertex x="134,360193" y="34,166443"/>
+			<Vertex x="117,853082" y="19,962416"/>
+			<Vertex x="87,526062" y="13,052349"/>
+		</Polygon>
+	</Shape>
+	<Texture file="Ships/xuru_gunship.png" width="162" height="286"/>
+</Ship>
+

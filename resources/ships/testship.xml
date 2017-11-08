@@ -1,0 +1,30 @@
+<Ship name="TestShip" 
+      density="2" 
+      friction="0.1" 
+      propulsion="30" 
+      maxTorque="3"
+      scale="1">
+    <Shape>
+        <Polygon>
+            <Vertex x="16" y="45" />
+            <Vertex x="3" y="81" />
+            <Vertex x="49" y="81" />
+            <Vertex x="36" y="45" />
+        </Polygon>
+        <Polygon>
+            <Vertex x="26" y="4" />
+            <Vertex x="16" y="45" />
+            <Vertex x="36" y="45" />
+        </Polygon>
+        <!--
+        <Circle x="100" y="100" radius="25"/>
+        <Edge v_x="0" v_y="20" w_x="26" w_y="20" /> -->
+        <Chain loop="true">
+            <Point x="26" y="2" />
+            <Point x="1" y="30" />
+            <Point x="44" y="30" />
+        </Chain>
+    </Shape>
+    <Price vendor="50000" player="25000"/>
+    <Texture file="Ships/redship_small.png" width="52" height="87" />
+</Ship>

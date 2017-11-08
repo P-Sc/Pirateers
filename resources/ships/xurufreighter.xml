@@ -1,0 +1,54 @@
+<Ship name="XuruFreighter" density="1.0" friction="0.1" scale="1.5" propulsion="100" maxTorque="0.5" hull="500" shieldClass="3" worth="12000">
+	<Shape>
+		<Polygon>
+			<Vertex x="3,842697" y="24,043062"/>
+			<Vertex x="0,640449" y="184,330142"/>
+			<Vertex x="7,365168" y="195,870810"/>
+			<Vertex x="21,134832" y="197,473686"/>
+			<Vertex x="35,544942" y="197,153111"/>
+		</Polygon>
+		<Polygon>
+			<Vertex x="35,544942" y="197,153111"/>
+			<Vertex x="33,303370" y="33,019138"/>
+			<Vertex x="32,983145" y="10,258373"/>
+			<Vertex x="25,938203" y="7,373206"/>
+			<Vertex x="10,247191" y="11,861244"/>
+			<Vertex x="3,842697" y="24,043062"/>
+		</Polygon>
+		<Polygon>
+			<Vertex x="76,853935" y="33,339713"/>
+			<Vertex x="67,887638" y="18,272728"/>
+			<Vertex x="45,792134" y="16,669857"/>
+			<Vertex x="40,348315" y="30,775118"/>
+		</Polygon>
+		<Polygon>
+			<Vertex x="83,898877" y="196,832535"/>
+			<Vertex x="80,376406" y="33,339713"/>
+			<Vertex x="76,853935" y="33,339713"/>
+		</Polygon>
+		<Polygon>
+			<Vertex x="76,853935" y="33,339713"/>
+			<Vertex x="40,348315" y="30,775118"/>
+			<Vertex x="33,303370" y="33,019138"/>
+			<Vertex x="35,544942" y="197,153111"/>
+			<Vertex x="83,898877" y="196,832535"/>
+		</Polygon>
+		<Polygon>
+			<Vertex x="110,157304" y="22,119617"/>
+			<Vertex x="102,151688" y="13,143541"/>
+			<Vertex x="88,382022" y="8,334928"/>
+			<Vertex x="81,337080" y="11,220095"/>
+			<Vertex x="80,376406" y="33,339713"/>
+		</Polygon>
+		<Polygon>
+			<Vertex x="80,376406" y="33,339713"/>
+			<Vertex x="83,898877" y="196,832535"/>
+			<Vertex x="92,544942" y="200,358850"/>
+			<Vertex x="109,196630" y="196,832535"/>
+			<Vertex x="112,398877" y="182,727278"/>
+			<Vertex x="110,157304" y="22,119617"/>
+		</Polygon>
+	</Shape>
+	<Texture file="Ships/xuru_freighter.png" width="114" height="201"/>
+</Ship>
+

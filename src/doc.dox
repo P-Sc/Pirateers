@@ -1,0 +1,114 @@
+/**
+<div markdown style="width:110ch; margin: 0 auto; font-size:16px;">
+ * \mainpage Pirateers
+ * # Installation
+ * Pirateers benötigt folgende externe Libraries:
+ * - **SFML** (>2.4)
+ *   für Grafik und Sound.
+ *
+ * - **Box2D**
+ *   für die Physik
+ *
+ * - **Qt**
+ *   für die GUI des Schiffeditors
+ *
+ * - **Boost**
+ *   (System und FileSystem) für  das Durchsuchen des "resources"-Verzeichnises
+ *
+ * \n Zur Erstellung das Skript im "Pirateers"-Ordner ausführen. Hierfür sind qmake und make
+ * nötig
+ *
+ *      ./build.sh
+ *
+ * __Achtung:__ Das Spiel greift über relative Pfade auf den "resources"-Ordner zu.
+ * Daher muss der Build-Ordner im selben Verzeichnis wie der "resources"-Ordner liegen.
+ * (Wird durch das Skript gewährleistet.) \n \n \n
+ *
+ * <img src="../images/pirateers.png" alt="Drawing" style="width: 100ch;"/>
+ * \n \n
+ * # Das Spiel
+ * Sei ein Weltraum-Pirat und überfalle reiche Händlerschiffe. Dir stehen dazu verschiedene
+ * Waffen und ein Teleporter, der dich zu deinem nächsten Ziel bringt, zur Verfügung. Verbessere
+ * dein Schiff und deine Waffen mit dem gesammelten Geld! Doch Vorsicht: Die Händler werden durch
+ * Jäger, Drohnen und Kanonenboote gut bewacht, welche ihre Präsenz erhöhen, je öfter du
+ * angreifst.
+ *
+ * ## Dramatische Weltraumschlachten
+ * Immer stärker werdene Gegner sorgen für spannende und schwierige Gefechte. Unterschiedliche KIs
+ * für unterschiedliche Gegnertypen erhöhen zusätzlich den Schwierigkeitsgrad. Während Händler
+ * versuchen zu Fliehen, gehen Kanonenboote auf Konfrontationskurs. Während Drohnen versuchen
+ * ihren Angreifer zu umzingeln, verursachen Jäger kurze, schnelle Stöße, um den Selbigen
+ * zu zerstören.
+ *
+ * ## Effektreiche Weltraumschlachten
+ * Explosionen! \n \n
+ *
+ *
+ * # Entity-Component-System
+ *
+ * Das Spiel ist, statt in einer herkömmlichen Architektur, in einem Entity-Component-System erstellt
+ * worden.
+ * <img src="../images/entities.png" alt="Drawing" style="width: 80ch;"/>
+ *
+ * Das obige Bild veranschaulicht skizzenhaft die Beziehung zwischen Entities (z.B. BanditDrone),
+ * @ref GameSystem "GameSystems" (z.B. PhysicsSystem) und @ref Component "Components"
+ * (z.B. PhysicsComponent). Entities werden mit Components zusammengebaut (ähnlich wie mit Bausteinen),
+ * welche wiederrum gesammelt in dem jeweiligen GameSystem verwaltet bzw. verarbeitet werden.
+ * Statt nun jede Entity auf einmal zu aktualisieren, werden die verschiedenen Komponenten-Objekte
+ * gesammelt aktualisiert. So ergibt sich, dass keine sehr tiefen Vererbungsbäume entstehen
+ * und eine neue Funktionalität sehr einfach in beliebige Entities (und Components) eingefügt
+ * werden kann.\n
+ *
+ * Abgesehen von ein paar Ausnahmen (z.B. StarDustSystem), besteht jede "Funktionalität"
+ * aus einer GameSystem -Klasse, einer Component -Klasse, und einer Settings -Klasse.
+ * Letztere dient dabei zur Konfiguration der Component -Klasse. Bei Aufruf von
+ * GameSystem::createComponent(), wird die Komponente erstellt, das Settings-Objekt
+ * weitergegeben und die Komponente in ein internes Array (des GameSystems) platziert. \n
+ *
+ * Bei Aufruf von GameSystem::update() geschehen nun drei Dinge:
+ * - Das interne Array von Components wird aufgeräumt. Das heißt, dass Komponenten, die
+ *   gelöscht werden sollen, mit noch aktiven, "lebenden" Komponenten so vertauscht werden,
+ *   dass die zu löschenden Komponenten sich alle im hinteren Teil des Arrays befinden.
+ *   Dadurch können diese alle auf einmal beseitigt und das Array verkleinert werden.
+ *
+ * - Nachrichten werden weitergeleitet (dazu später mehr).
+ *
+ * - Spiellogik (spezifisch für das jeweilige GameSystem bzw. für jede Vererbung davon)
+ *
+ * Durch Punkt 1 tritt folgendes Problem auf: Da die Komponenten alle in ihrem jeweiligen
+ * GameSystem gespeichert werden und die Adressen dieser Komponenten durch das mögliche Verschieben
+ * nicht fest sind, darf eine Entity keine direkte Referenz oder Pointer auf die Komponente
+ * besitzen. So eine Referenz könnte schließlich nach einem update() ungültig sein.
+ * Eine ständige Aktualisierung von Referenzen fällt ebenfalls weg, denn so würde sich
+ * Multi-Threading sehr schwierig gestalten. Tatsächlich aber, ist ein Entity-Component-System
+ * in der Theorie sehr gut auf Multi-Threading auszulegen. Durch die Kapselung jeder Komponente,
+ * könnten viele Systeme in ihrem eigenen Thread laufen. Aus Debug-Gründen läuft Pirateers jedoch
+ * noch auf einem Thread. \n \n
+ *
+ * Um dieses Prinzip trotzdem nicht zu Untergraben, gibt GameSystem::createComponent() ein
+ * Handle zurück, welches eine ID für das jeweilige Objekt enthät. Diese ID ist unter den
+ * lebenden Objekten eindeutig. Intern kann das GameSystem diese ID dann einem Index im
+ * Array zuordnen. Wegen dieser indirekten Zuordnung sollte auch die Skizze verbessert werden:
+ *
+ * <img src="../images/entities2.png" alt="Drawing" style="width: 80ch;"/>
+ *
+ * ## EventSystem
+ *
+ * Die Benutzung von Handles löst jedoch noch nicht das Problem, dass keine Komponenten
+ * außerhalb des GameSystems nicht angesprochen werden können. Um trotzdem Interaktion
+ * zwischen Komponenten gewährleisten zu können, basiert die gesamte Kommunikation zwischen
+ * den Komponenten auf @ref Event "Events" und ist somit indirekt. Jedem Event wird eine
+ * passende EventMessage zugeordnet, welche Felder zu den nötigen Informationen enthält.
+ * Zum Beispiel wird EventPosMessage sowohl von ::evMove, als auch von ::cmAimAt benutzt.
+ * \n
+ * Ein Component oder ein GameSystem kann sich nun bei einem anderen Component als Listener
+ * registrieren. Löst nun dieses Component ein Event aus, wird die Nachricht an einen EventManager
+ * beim Empfänger-GameSystem geschickt. Führt das Empfänger-GameSystem nun update() aus,
+ * werden alle erhaltenen Nachrichten an die jeweiligen Listener per GameSystem::notify()
+ * und Component::notify() verteilt. Wie schon bereits angedeutet, können sich GameSystems
+ * und Components nur bei Components anmelden, aber nicht bei GameSystems.
+</div>
+<div style="padding-bottom: 200px;">
+</div>
+ */
+

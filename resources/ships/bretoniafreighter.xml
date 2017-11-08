@@ -1,0 +1,68 @@
+<Ship name="BretoniaFreighter" density="1.5" friction="0.001" scale="1.5" propulsion="100" maxTorque="0.5" hull="500" shieldClass="5" worth="12000">
+	<Shape>
+		<Polygon>
+			<Vertex x="133,129414" y="213,832685"/>
+			<Vertex x="145,188239" y="196,938465"/>
+			<Vertex x="149,047062" y="180,526924"/>
+			<Vertex x="145,670584" y="147,221147"/>
+		</Polygon>
+		<Polygon>
+			<Vertex x="145,670584" y="147,221147"/>
+			<Vertex x="148,082351" y="111,984616"/>
+			<Vertex x="141,811761" y="94,607694"/>
+			<Vertex x="125,411767" y="86,884618"/>
+			<Vertex x="133,129414" y="213,832685"/>
+		</Polygon>
+		<Polygon>
+			<Vertex x="32,800000" y="204,178847"/>
+			<Vertex x="33,764706" y="220,107694"/>
+			<Vertex x="47,270590" y="236,036541"/>
+			<Vertex x="67,529413" y="236,036541"/>
+		</Polygon>
+		<Polygon>
+			<Vertex x="17,847059" y="157,840388"/>
+			<Vertex x="16,882353" y="180,526924"/>
+			<Vertex x="19,776471" y="197,903853"/>
+			<Vertex x="32,800000" y="204,178847"/>
+		</Polygon>
+		<Polygon>
+			<Vertex x="82,482355" y="10,136539"/>
+			<Vertex x="71,870586" y="11,101923"/>
+			<Vertex x="64,152940" y="21,721154"/>
+		</Polygon>
+		<Polygon>
+			<Vertex x="37,141177" y="90,263462"/>
+			<Vertex x="119,141177" y="56,474999"/>
+			<Vertex x="109,011763" y="30,409615"/>
+			<Vertex x="97,435293" y="13,515385"/>
+			<Vertex x="82,482355" y="10,136539"/>
+		</Polygon>
+		<Polygon>
+			<Vertex x="82,482355" y="10,136539"/>
+			<Vertex x="64,152940" y="21,721154"/>
+			<Vertex x="48,235296" y="37,650001"/>
+			<Vertex x="41,964706" y="59,371152"/>
+			<Vertex x="37,141177" y="77,713459"/>
+			<Vertex x="37,141177" y="90,263462"/>
+		</Polygon>
+		<Polygon>
+			<Vertex x="67,529413" y="236,036541"/>
+			<Vertex x="104,670584" y="236,519235"/>
+			<Vertex x="128,788235" y="233,140391"/>
+			<Vertex x="133,129414" y="213,832685"/>
+			<Vertex x="125,411767" y="86,884618"/>
+			<Vertex x="119,141177" y="56,474999"/>
+		</Polygon>
+		<Polygon>
+			<Vertex x="119,141177" y="56,474999"/>
+			<Vertex x="37,141177" y="90,263462"/>
+			<Vertex x="26,047060" y="98,951927"/>
+			<Vertex x="18,811765" y="124,534612"/>
+			<Vertex x="17,847059" y="157,840388"/>
+			<Vertex x="32,800000" y="204,178847"/>
+			<Vertex x="67,529413" y="236,036541"/>
+		</Polygon>
+	</Shape>
+	<Texture file="Ships/bretonia_freighter.png" width="164" height="251"/>
+</Ship>
+

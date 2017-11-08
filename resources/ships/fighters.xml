@@ -1,0 +1,22 @@
+<Ship name="Defender" 
+      density="2" 
+      friction="0.1" 
+      propulsion="20" 
+      maxTorque="10"
+      scale="1">
+    <Shape>
+        <Polygon>
+            <Vertex x="22" y="45" />
+            <Vertex x="3" y="81" />
+            <Vertex x="49" y="81" />
+            <Vertex x="30" y="45" />
+        </Polygon>
+        <Polygon>
+            <Vertex x="29" y="4" />
+            <Vertex x="36" y="75" />
+            <Vertex x="16" y="75" />
+            <Vertex x="23" y="4" />
+        </Polygon>
+    </Shape>
+    <Texture file="Ships/redship_small.png" width="52" height="87" />
+</Ship>
