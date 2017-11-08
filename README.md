@@ -1,7 +1,7 @@
 # Pirateers
 A small 2D space shooter I made in the in the context of the lecture 
 ![main menu with paused gameplay](screenshot.png)
-<img src="screenshot.png" alt="main menu with paused gameplay" width="70%" height="70%" align="middle"/>
+<img src="screenshot.png" alt="main menu with paused gameplay" width="70%" height="70%" style="text-align:center"/>
 [PADI](https://graphics.tu-bs.de/teaching/ws1617/padi).
 
 ### About the Game
