@@ -42,11 +42,11 @@ Textures:
 
 Sounds:
 - [Isaac200000](https://freesound.org/people/Isaac200000/)
-- [Kenney] https://opengameart.org/content/63-digital-sound-effects-lasers-phasers-space-etc
+- [Kenney](https://opengameart.org/content/63-digital-sound-effects-lasers-phasers-space-etc)
 - [bubaproducer](https://freesound.org/people/bubaproducer/sounds/151022/)
 - [nsstudios](https://freesound.org/people/nsstudios/)
-- [Julien Matthey] (https://freesound.org/people/Julien%20Matthey/sounds/268344/)
-- [Michael Kurinnoy] (https://opengameart.org/content/space-battle-game-sounds-astromenace)
+- [Julien Matthey](https://freesound.org/people/Julien%20Matthey/sounds/268344/)
+- [Michael Kurinnoy](https://opengameart.org/content/space-battle-game-sounds-astromenace)
 
 Fonts
 - Ryoichi Tsunekawa
