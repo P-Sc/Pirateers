@@ -9,7 +9,8 @@
 #include <SFML/Window/Keyboard.hpp>
 #include <SFML/Window/Mouse.hpp>
 #include <SFML/Graphics/Color.hpp>
-#include <Box2D/Common/b2Math.h>
+//#include <box2d/b2_Math.h>
+#include <box2d/b2_math.h>
 
 using sf::Keyboard;
 using sf::Mouse;

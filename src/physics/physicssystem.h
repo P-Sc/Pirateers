@@ -6,8 +6,8 @@
 #define PHYSICSSYSTEM_H
 
 #include "base/gamesystem.h"
-#include <Box2D/Box2D.h>
-#include <Box2D/Dynamics/b2World.h>
+#include <box2d/box2d.h>
+#include <box2d/b2_world.h>
 #include "physics/physicssettings.h"
 #include "physics/physicscomponent.h"
 

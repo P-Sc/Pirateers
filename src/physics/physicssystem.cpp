@@ -31,7 +31,7 @@ void PhysicsSystem::update(float dt) {
     message->event = evMove;
 
     for (unsigned int i = 0; i < componentList.size(); i++) {
-        if (componentList[i].body->IsActive()) {
+        if (componentList[i].body->IsEnabled()) {
             /*
              * Listener Position und Rotation senden
              */

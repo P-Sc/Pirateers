@@ -4,7 +4,7 @@
 #ifndef WEAPONSETTINGS_H
 #define WEAPONSETTINGS_H
 
-#include "Box2D/Common/b2Math.h"
+#include "box2d/b2_math.h"
 #include "base/settings.h"
 #include "handle.h"
 #include "graphics/graphicssettings.h"

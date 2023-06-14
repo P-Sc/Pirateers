@@ -6,7 +6,7 @@
 #define MODELSETTINGS_H
 
 #include <vector>
-#include "Box2D/Collision/Shapes/b2Shape.h"
+#include "box2d/b2_shape.h"
 #include "base/settings.h"
 
 

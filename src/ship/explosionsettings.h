@@ -4,7 +4,7 @@
 #ifndef EXPLOSIONSETTINGS_H
 #define EXPLOSIONSETTINGS_H
 
-#include <Box2D/Common/b2Math.h>
+#include <box2d/b2_math.h>
 #include "base/settings.h"
 #include "sound/soundsettings.h"
 

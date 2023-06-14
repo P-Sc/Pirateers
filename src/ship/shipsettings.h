@@ -7,7 +7,7 @@
 
 #include <string>
 #include <vector>
-#include <Box2D/Common/b2Math.h>
+#include <box2d/b2_math.h>
 #include "base/settings.h"
 #include "ship/weapon.h"
 #include "ship/shieldsettings.h"

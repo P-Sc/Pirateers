@@ -1,8 +1,8 @@
 #include "modelcomponent.h"
-#include "Box2D/Collision/Shapes/b2PolygonShape.h"
-#include "Box2D/Collision/Shapes/b2CircleShape.h"
-#include "Box2D/Collision/Shapes/b2EdgeShape.h"
-#include "Box2D/Collision/Shapes/b2ChainShape.h"
+#include "box2d/b2_polygon_shape.h"
+#include "box2d/b2_circle_shape.h"
+#include "box2d/b2_edge_shape.h"
+#include "box2d/b2_chain_shape.h"
 
 
 /**
@@ -33,10 +33,10 @@ float ModelComponent::b2AngleToSfAngle(float rad) {
 void ModelComponent::addShape(b2PolygonShape *shape) {
     sf::ConvexShape polygon;
     polygon.setFillColor(fillColor);
-    int count = shape->GetVertexCount();
+    int count = shape->m_count;
     polygon.setPointCount(count);
     for (int i = 0; i < count; i++) {
-        b2Vec2 vertex = shape->GetVertex(i);
+        b2Vec2 vertex = shape->m_vertices[i];
         polygon.setPoint(i, sf::Vector2f(vertex.x*30*(-1), vertex.y*30 * (-1)));
     }
     polygons.push_back(polygon);

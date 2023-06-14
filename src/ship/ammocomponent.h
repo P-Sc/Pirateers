@@ -7,7 +7,7 @@
 
 #include <vector>
 #include <random>
-#include "Box2D/Common/b2Math.h"
+#include "box2d/b2_math.h"
 #include "base/component.h"
 #include "ship/ammosettings.h"
 #include "ship/projectile.h"

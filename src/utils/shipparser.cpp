@@ -4,11 +4,11 @@
 #include <fstream>
 //#include <string>
 
-#include <Box2D/Collision/Shapes/b2Shape.h>
-#include <Box2D/Collision/Shapes/b2PolygonShape.h>
-#include <Box2D/Collision/Shapes/b2CircleShape.h>
-#include <Box2D/Collision/Shapes/b2EdgeShape.h>
-#include <Box2D/Collision/Shapes/b2ChainShape.h>
+#include <box2d/b2_shape.h>
+#include <box2d/b2_polygon_shape.h>
+#include <box2d/b2_circle_shape.h>
+#include <box2d/b2_edge_shape.h>
+#include <box2d/b2_chain_shape.h>
 
 
 
@@ -69,7 +69,8 @@ void ShipParser::convertShape(GraphicsSettings & graphicsSettings, b2PolygonShap
     shape->m_centroid = b2Vec2(0,0);
 
     //b2Vec2* vertices = shape->m_vertices;
-    b2Vec2 vertices[8] = shape->m_vertices;
+    b2Vec2 *vertices;
+    vertices = shape->m_vertices;
     for (int i = 0; i < shape->m_count; i++) {
 
         // An X-Achse spiegeln
@@ -162,8 +163,8 @@ void ShipParser::convertShape(GraphicsSettings & graphicsSettings, b2EdgeShape* 
  * Das Shape wird direkt verändert und nicht kopiert.
  */
 void ShipParser::convertShape(GraphicsSettings & graphicsSettings, b2ChainShape* shape) {
-    int count = shape->m_count;
-    b2Vec2 vertices[count];
+    int32 count = shape->m_count;
+    b2Vec2 vertices[8];
     for (int i = 0; i < count; i++) {
         vertices[i] = shape->m_vertices[i];
 
@@ -187,7 +188,7 @@ void ShipParser::convertShape(GraphicsSettings & graphicsSettings, b2ChainShape*
         shape->CreateLoop(tmp, count-1);
     } else {
         shape->Clear();
-        shape->CreateChain(vertices, count);
+        shape->CreateLoop(vertices, count);
     }
 }
 
@@ -340,7 +341,7 @@ b2EdgeShape* ShipParser::parseEdgeShape(xml_node<> * shapeNode) {
         v.Set(atof(vxAttribute->value()), atof(vyAttribute->value()));
         w.Set(atof(wxAttribute->value()), atof(wyAttribute->value()));
 
-        shape->Set(v, w);
+        shape->SetTwoSided(v, w);
         std::cout << "  Point 1 - x: " << v.x << "  y: " << v.y << std::endl;
         std::cout << "  Point 2 - x: " << w.x << "  y: " << w.y << std::endl;
         return shape;
@@ -416,7 +417,7 @@ b2ChainShape* ShipParser::parseChainShape(xml_node<> * shapeNode) {
         if (loop)
             shape->CreateLoop(tmp_points, points.size());
         else
-            shape->CreateChain(tmp_points, points.size());
+            shape->CreateLoop(tmp_points, points.size());
 
         return shape;
     }

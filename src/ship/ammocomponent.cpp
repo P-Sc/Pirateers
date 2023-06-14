@@ -1,7 +1,7 @@
 #include "ammocomponent.h"
 #include "graphics/graphicssystem.h"
 #include "physics/physicssystem.h"
-#include "Box2D/Collision/Shapes/b2CircleShape.h"
+#include "box2d/b2_circle_shape.h"
 
 
 /**

@@ -1,6 +1,7 @@
 #include "component.h"
 #include "events/eventmanager.h"
 #include "base/settings.h"
+#include <stdexcept>
 
 
 class Settings;

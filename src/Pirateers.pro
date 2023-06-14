@@ -17,7 +17,7 @@ INCLUDEPATH += /usr/include/Box2D/
 #LIBS += -L$$PWD/lib -lBox2D
 LIBS += -L/usr/local/lib/ -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 LIBS += -L/usr/lib/x86_64-linux-gnu/ -lboost_system -lboost_filesystem
-LIBS += -L/usr/lib/x86_64-linux-gnu/ -lBox2D
+LIBS += -L/usr/lib/x86_64-linux-gnu/ -lbox2d
 
 SOURCES += main.cpp \
     utils/fixedindexarray.cpp \

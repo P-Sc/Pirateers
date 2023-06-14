@@ -1,6 +1,6 @@
 #include "physicscomponent.h"
 #include "physics/physicssettings.h"
-#include "Box2D/Collision/Shapes/b2PolygonShape.h"
+#include "box2d/b2_polygon_shape.h"
 
 using std::vector;
 
@@ -39,11 +39,11 @@ void PhysicsComponent::notify(EventMessage* message) {
         break;
     }
     case cmActivate: {
-        body->SetActive(true);
+        body->SetEnabled(true);
         break;
     }
     case cmDeactivate: {
-        body->SetActive(false);
+        body->SetEnabled(false);
         break;
     }
     case evHit: {
@@ -72,6 +72,8 @@ PhysicsComponent::PhysicsComponent(PhysicsSettings settings, Handle* handle)
      */
     typename vector<b2Shape*>::iterator it = settings.shapes.begin();
 
+
+
     for (it; it != settings.shapes.end(); it++) {
         b2FixtureDef fixtureDef;
         fixtureDef.shape = *it;
@@ -80,7 +82,10 @@ PhysicsComponent::PhysicsComponent(PhysicsSettings settings, Handle* handle)
         fixtureDef.isSensor = false;
         fixtureDef.filter.categoryBits = settings.category;
         fixtureDef.filter.maskBits = settings.collidingWith;
-        fixtureDef.userData = (void*) handle;
+        b2FixtureUserData data;
+        data.pointer = (uintptr_t) handle;
+        fixtureDef.userData = data;
+
         body->CreateFixture(&fixtureDef);
     }
     localCenter = body->GetLocalCenter();

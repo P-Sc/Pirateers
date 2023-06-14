@@ -1,5 +1,5 @@
 #include "weaponsystem.h"
-#include <Box2D/Box2D.h>
+#include <box2d/box2d.h>
 #include "physics/physicssystem.h"
 #include "graphics/graphicssystem.h"
 #include "debug/modelsettings.h"

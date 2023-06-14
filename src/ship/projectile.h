@@ -6,9 +6,10 @@
 #define PROJECTILE_H
 
 #include <vector>
-#include "Box2D/Common/b2Math.h"
-#include "Box2D/Dynamics/b2WorldCallbacks.h"
-#include "Box2D/Dynamics/b2Fixture.h"
+#include "box2d/b2_math.h"
+#include "box2d/b2_world_callbacks.h"
+#include "box2d/b2_fixture.h"
+#include "box2d/b2_settings.h"
 #include "handle.h"
 #include "physics/entitycategory.h"
 
@@ -58,9 +59,10 @@ public:
      * @brief Funktion aus b2RayCastCallback. Wird bei einem Raycast aufgerufen, falls eine
      *        Kollision auftrat. Siehe Box2D-Dokumentation.
      */
-    virtual float32 ReportFixture(b2Fixture *fixture, const b2Vec2 &point,
-                                  const b2Vec2 &normal, float32 fraction) {
-        Handle* physicsHandle = (Handle*) fixture->GetUserData();
+    virtual float ReportFixture(b2Fixture *fixture, const b2Vec2 &point,
+                                  const b2Vec2 &normal, float fraction) {
+        b2FixtureUserData data = fixture->GetUserData();
+        Handle* physicsHandle = (Handle*) data.pointer;
 
         if (physicsHandle != notColliding
                 && fixture->GetFilterData().categoryBits != ENTITY_WEAPON) {

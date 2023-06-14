@@ -1,5 +1,5 @@
 #include "weaponloader.h"
-#include <Box2D/Collision/Shapes/b2PolygonShape.h>
+#include <box2d/b2_polygon_shape.h>
 //#include "graphics/graphicssettings.h"
 
 WeaponSettings WeaponLoader::plasma = WeaponLoader::loadPlasma();

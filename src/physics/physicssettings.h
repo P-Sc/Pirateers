@@ -7,7 +7,7 @@
 
 #include <vector>
 #include <memory>
-#include <Box2D/Collision/Shapes/b2Shape.h>
+#include <box2d/b2_shape.h>
 #include "base/settings.h"
 #include "physics/entitycategory.h"
 
