@@ -4,6 +4,8 @@ A small 2D space shooter I made in the in the context of the lecture [PADI](http
     <img src="screenshot.png" alt="main menu with paused gameplay" width="70%" height="70%"/>
 </p>
 
+[![Gameplay Footage](http://img.youtube.com/vi/2JIX47EAtO0/0.jpg)](http://www.youtube.com/watch?v=2JIX47EAtO0)
+
 ### About the Game
 Become a space pirate and raid rich space merchants with fancy space weapons. pew pew.
 But keep out for those space guards.
